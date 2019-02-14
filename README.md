@@ -18,6 +18,9 @@ npm run start:server    // 0.0.0.0:8888
 ```
 ## 观察测试
 
+> `client/views/index.html` 为前端实现
+> `crosServer/app` 为服务器端实现
+
 - script 的 `src` 不受同源策略限制
 - JS 天然支持 json 格式
 - 动态生成 `<script src='...'></script>`
