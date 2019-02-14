@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>cros</title>
+</head>
+<body>
+  <div id='show'></div>
+
+  <script src="https://s1.ljcdn.com/pegasus/redskull/deps/jquery_lj_0_1.js?_v=20190124175810362"></script>
+  <script>
+    // 使用JQuery JSONP
+    $(function () {
+      $.ajax({
+        type: "get",
+        async: false,
+        url: "http://0.0.0.0:8888/jsonp/getResult?id=1998&type=CA",
+        dataType: "jsonp",
+        // jsonp: "callback",  //传递给请求处理程序或页面的，用以获得jsonp回调函数名的参数名(默认为:callback)
+        // jsonpCallback:"?",  //自定义的jsonp回调函数名称，默认为jQuery自动生成的随机函数名
+        success: function(json){
+           alert('您查询到航班信息：票价： ' + json.price + ' 元，余票： ' + json.tickets + ' 张。');
+        },
+        error: function(){
+           alert('fail');
+        }
+      })
+    })
+  </script>
+  <script>
+    // 原生写法
+    // var ele = document.createElement('script')
+    // ele.src = 'http://0.0.0.0:8888/jsonp/getResult?callback=getResult&id=1998&type=CA'
+    // document.body.appendChild(ele)
+    //
+    // function getResult (json) {
+    //   alert('您查询到航班信息：票价： ' + json.price + ' 元，余票： ' + json.tickets + ' 张!!')
+    // }
+  </script>
+
+</body>
+</html>
